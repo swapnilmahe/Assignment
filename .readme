@@ -1,0 +1,5 @@
+-> Declared html in "index.html" file and stored all the javascript in "script.js"
+-> Created a self invoked function and declared it in js file
+-> Used DOM manupulation methods like createElement and createTextNodes to create table rows and cells .
+-> Gave CSS properties with the help of setAttribute method and element.style.properties as static use of css was prohibited.
+-> At last appended everything in one another by the help of appendChild functions .
