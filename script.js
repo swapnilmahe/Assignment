@@ -1,10 +1,9 @@
 myFunction = () => {
     var tab = document.createElement('table');
 tab.style.borderCollapse = "collapse";
-    tab.setAttribute('Border', '1');
-
-    var tr = document.createElement('tr');
-
+    tab.setAttribute('Border', '1');    
+    var tr = document.createElement('tr');   
+ 
     var td1 = document.createElement('td');
     var td2 = document.createElement('td');
     var td3 = document.createElement('td');
@@ -30,10 +29,11 @@ tab.style.borderCollapse = "collapse";
     tr.appendChild(td4);
     tr.appendChild(td5);
 
-    tab.appendChild(tr);
-    for (var i = 1; i < 5; i++) {
+    tab.appendChild(tr);  
+
+    for (var i = 1; i < 5 ; i++) {
         var tr1 = document.createElement('tr');
-        for (var j = 0; j < 5; j++) {
+        for (var j = 1; j < 6; j++) {
 
             var td6 = document.createElement('td');
             var text6 = document.createTextNode('');
@@ -50,4 +50,5 @@ tab.style.borderCollapse = "collapse";
         x[i].style.height="3.5vw";
         x[i].style.borderCollapse="collapse";
     }    
+    
 }
