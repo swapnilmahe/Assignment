@@ -1,32 +1,25 @@
-function validateAll() {
-    lettersAndSpaceCheck(document.form1.name);
+function validateAll(e) {
+    e.preventDefault()
+    lettersAndSpaceCheck(document.form1.name, document.form1.email);
     }
-function lettersAndSpaceCheck(name) {
+function lettersAndSpaceCheck(name ,email) {
     var regEx = /^[a-z][a-z\s]*$/;
-    (name.value.match(regEx)) ? addEntry(events) : alert("Please check the data again.");
+    const regex = /^([\.\_a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-zA-Z]){2,8}$/;
+    const regExo = /^([\.\_a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-zA-Z]){2,3}\.[a-zA-Z]{1,3}$/;
+    ((name.value.match(regEx)) && ((email.value.match(regex)) || (email.value.match(regExo)) ))? addEntry() : alert("Please check the data again.");
 }
 let arry = ["name", "email", "phone"]
-addEntry = (e) => { 
-
-    /*let obj = {};
-    for (let i in arry) {
-   obj[arry[i]]= document.getElementById(`${arry[i]}`).value;
-   console.log(arry[i])
-    }
-    localStorage.setItem('objects' , JSON.stringify(obj)) */
+let makeVisible = document.getElementById("guestview");
+ addEntry=()=> {     
     for( let i in arry){
         localStorage.setItem(`${arry[i]}`, document.getElementById(`${arry[i]}`).value);
     } 
-    //localStorage.setItem("email", document.getElementById("email").value);
-    //localStorage.setItem("phone", document.getElementById("phone").value);
-         let newName = localStorage.getItem('name');
-         let newEmail = localStorage.getItem('email');
-         let newPhone = localStorage.getItem('phone');
-         let makeVisible = document.getElementById("guestview");
-         document.getElementById("new").innerHTML = newName
-         document.getElementById("newer").innerHTML = newEmail
-         document.getElementById("newest").innerHTML = newPhone
-         makeVisible.style.visibility = "visible";
-
-}
-
+    var newName = localStorage.getItem("name");
+    var newEmail = localStorage.getItem("email");
+    var newPhone = localStorage.getItem("phone");
+    document.getElementById("new").innerHTML = newName || 'Nothing';
+    document.getElementById("newer").innerHTML = newEmail || 'Nothing';
+    document.getElementById("newest").innerHTML = newPhone || 'NA';
+   
+    makeVisible.style.cssText = 'visibility:visible ;';
+} 
